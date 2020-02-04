@@ -4,9 +4,9 @@ import requests
 import sys as sys
 import pandas as pd
 
-url_file= pd.read_csv('t3.csv')
+url_file= pd.read_csv('csv_file_name.csv')
 
-for x in url_file['n_url']: #replace 'url_column_name' with the actual name in your df 
+for x in url_file['n_url']: #replace 'n_url' with the actual name in your df 
     for url in url_file.readlines():
         a = Article(x, language='en')
         html = requests.get(url).text
@@ -22,7 +22,7 @@ for x in url_file['n_url']: #replace 'url_column_name' with the actual name in y
 url_file.close()
 
 
-with open("t2.txt", "w") as text_file:
+with open("output_text_file_name", "w") as text_file:
     print(title, file=text_file)
     print(keywords, file=text_file)
     print(summary, file=text_file)
